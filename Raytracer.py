@@ -3,7 +3,7 @@ from math import *
 from vector import *
 from Utilities import *
 import random 
-import writebmp
+from writebmp import *
 class Raytracer(object):
     def __init__(self, width, height):
         self.width = width
@@ -26,3 +26,28 @@ class Raytracer(object):
 
     def write(self, filename):
         writefile(filename, self.width, self.height, self.framebuffer)
+        
+    def render(self):
+        fov = int(pi/2)
+        ar = self.width/self.height
+        tana = tan(fov/2)
+
+        for y in range(self.height):
+            for x in range(self.width):
+                if random.random() < self.density:
+                    i = ((2 * (x + 0.5) / self.width ) - 1) * ar * tana
+                    j = (1 - (2 * (y + 0.5) / self.height )) * tana
+
+                    direction = V3(i, j, -1).normalize()
+                    origin = V3(0, 0, 0)
+                    c = self.cast_ray(origin, direction)
+
+                    self.point(x, y, c)
+
+        
+    def cast_ray(self, origin, direction):
+        for o in self.scene:
+            if o.ray_intersect(origin, direction):
+                return o.color
+        else:
+            return self.background_color

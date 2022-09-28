@@ -1,7 +1,8 @@
 class Sphere(object): #Clase para esferas.
-    def __init__(self, center, radius): #Recibe el centro y el radio.
+    def __init__(self, center, radius,color): #Recibe el centro y el radio.
         self.center = center
         self.radius = radius
+        self.color = color
     
     def ray_intersect(self, orig, direction): 
         L = self.center - orig 
