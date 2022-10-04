@@ -1,8 +1,9 @@
+from intersect import *
 class Sphere(object): #Clase para esferas.
-    def __init__(self, center, radius,color): #Recibe el centro y el radio.
+    def __init__(self, center, radius,material): #Recibe el centro y el radio.
         self.center = center
         self.radius = radius
-        self.color = color
+        self.material = material
     
     def ray_intersect(self, orig, direction): 
         L = self.center - orig 
@@ -26,5 +27,10 @@ class Sphere(object): #Clase para esferas.
         if t0 < 0: 
             return False
         
-
-        return True
+        impact = orig + direction * t0
+        normal = (impact - self.center).normalize()
+        return Intersect(
+            distance=t0, 
+            point=impact, 
+            normal=normal
+            )
