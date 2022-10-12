@@ -58,9 +58,16 @@ class Raytracer(object):
         light_dir = (self.light.position - intersect.point).normalize()
         intensity = light_dir @ intersect.normal
 
-        diffuse = material.diffuse * intensity 
+        diffuse = material.diffuse * intensity
 
-        return diffuse
+        light_dir.reflect(intersect)
+        intensity = max(0,light_dir @ direction)
+        specular_intensity = self.light.intensity * intensity ** material.spec
+
+        specular = self.light.color * specular_intensity * material.albedo[1]
+
+
+        return diffuse + specular
 
     def scene_intersect(self, origin, direction):
         zbuffer = 99999

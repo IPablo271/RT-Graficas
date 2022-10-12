@@ -51,3 +51,7 @@ class V3(object):
     if(self.length() == 0):
       return V3(0, 0, 0)
     return self * (1 / self.length())
+
+  def reflect(self,other):
+    return V3(self - other * 2 * self @ other).normalize()
+   
