@@ -43,7 +43,7 @@ ray.scene = [
     #Orejas
     Sphere(V3(-3.6, -2.5, -9), 0.6, darkerBrown),
     Sphere(V3(-1.6, -2.5, -10), 0.65, darkerBrown),
-    Sphere(V3(3.6, -2.5, -9), 0.6, white2),
+    Sphere(V3(3.8, -2.5, -9.3), 0.6, white2),
     Sphere(V3(1.6, -2.5, -10), 0.65, white2),
 
     #Brazos
@@ -64,4 +64,4 @@ ray.scene = [
 ]
 
 ray.render()
-ray.write('prueba.bmp')
+ray.write('RT2.bmp')
