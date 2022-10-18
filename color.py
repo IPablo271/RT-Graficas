@@ -28,6 +28,12 @@ class color(object):
             r = 255
 
         return color(int(r), int(g), int(b))
+        
+    def __add__(self, other):
+        return color(
+            self.r + other.r,
+            self.g + other.g,
+            self.b + other.b)
 
     def toBytes(self):
         return bytes([self.b, self.g, self.r])
