@@ -2,6 +2,7 @@ from Raytracer import *
 from material import *
 from color import *
 from light import *
+from plane import *
 White = color(255, 255, 255)
 
 #Colores
@@ -18,10 +19,11 @@ ray.light = Light(
     color=White
 )
 ray.scene = [
-    Sphere(V3(0, -1.5, -10), 1.5, ivory),
-    Sphere(V3(0, 0, -5), 0.5, glass),
-    Sphere(V3(1, 1, -8), 1.7, rubber),
-    Sphere(V3(-2, -1, -10), 2, mirror)
+    # Sphere(V3(0, -1.5, -10), 1.5, ivory),
+    # Sphere(V3(0, 0, -5), 0.5, glass),
+    # Sphere(V3(1, 1, -8), 1.7, rubber),
+    # Sphere(V3(-2, 1, -10), 2, mirror)
+    Plane(V3(0,2,-5),2,2,ivory)
 ]
 
 ray.render()

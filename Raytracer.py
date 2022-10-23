@@ -7,6 +7,7 @@ from writebmp import *
 from color import *
 from material import *
 from light import *
+from envmap import *
 MAX_RECURSION_DEPTH = 3
 LIGHTBLUE = color(173, 216, 230)
 WHITE = color(255, 255, 255)
@@ -53,14 +54,19 @@ class Raytracer(object):
 
                     self.point(x, y, c)
 
-        
+    def get_background(self, direction):
+        if self.envmap:
+            return self.envmap.get_color(direction)
+        else:
+            return self.background_color
+    
     def cast_ray(self, origin, direction,recursion = 0):
         if recursion == MAX_RECURSION_DEPTH:
-            return self.background_color
+            return self.get_background(direction)
 
         material, intersect = self.scene_intersect(origin, direction)
         if material is None:
-            return self.background_color
+            return self.get_background(direction)
 
         light_dir = (self.light.position - intersect.point).normalize()
 

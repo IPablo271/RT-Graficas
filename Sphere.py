@@ -33,4 +33,4 @@ class Sphere(object): #Clase para esferas.
             distance=t0, 
             point=impact, 
             normal=normal
-            )
+        )
