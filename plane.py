@@ -6,6 +6,7 @@ class Plane(object): #Clase para esferas.
         self.w = w
         self.l = l
         self.material = material
+        
     def ray_intersect(self, origin, direction): 
         d = -(origin.y + self.center.y) / direction.y
         impact = (direction * d) - origin 
