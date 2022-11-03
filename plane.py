@@ -16,6 +16,7 @@ class Plane(object): #Clase para esferas.
             impact.x > (self.center.x + self.w/2) or impact.x < (self.center.x - self.w/2) or \
             impact.z > (self.center.z + self.l/2) or impact.z < (self.center.z - self.l/2):
             return None
+        
         return Intersect(
             distance=d, 
             point=impact, 
