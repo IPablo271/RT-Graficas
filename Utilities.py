@@ -1,4 +1,5 @@
 import struct
+from vector import *
 def chart(c):
     #Ocupa 1 byte.
     #=c es para que sea un caracter. El encode es para convertir el caracter a bits. El =c es para convertir esos bits a bytes.
@@ -14,5 +15,7 @@ def word(w):
 def dword(d): #Double word.
     #Ocupa 4 bytes. El l es para un num de 4 bytes.
     return struct.pack("=l", d)
+
+
 
 

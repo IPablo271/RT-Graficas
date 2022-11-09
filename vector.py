@@ -51,6 +51,14 @@ class V3(object):
     if(self.length() == 0):
       return V3(0, 0, 0)
     return self * (1 / self.length())
+  
+  def cross(self,other):
+    return V3(
+      self.y * other.z - self.z * other.y,
+      self.z * other.x - self.x * other.z,
+      self.x * other.y - self.y * other.x    
+  )
+  
 
   
    
