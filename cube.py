@@ -19,8 +19,7 @@ class Cube(object):
 
         self.planes.append( Plane2((position + V3(0,0,halfSize)), V3(0,0,1), material))
         self.planes.append( Plane2((position + V3(0,0,-halfSize)), V3(0,0,-1), material))
-
-
+        
     def ray_intersect(self, orig, direction):
 
         epsilon = 0.001

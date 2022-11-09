@@ -8,7 +8,6 @@ class Plane2(object):
         self.material = material
 
     def ray_intersect(self, orig, dir):
-    
         denom =  dir @ self.normal
         if abs(denom) > 0.0001:
             t = (self.normal @ (self.position - orig)) / denom

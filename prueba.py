@@ -14,7 +14,7 @@ mirror = Material(diffuse=color(255, 255, 255), albedo=[0, 1, 0.8,0], spec=1425)
 glass = Material(diffuse=color(150, 180, 200), albedo=[0, 0.5, 0.1,0.8], spec=125, reflactive_index=1.5)
 
 
-ray = Raytracer(400, 400)
+ray = Raytracer(1000, 1000)
 ray.light = Light(
     position=V3(-20,20,20),
     intensity=2,
@@ -27,6 +27,6 @@ ray.scene = [
     # Sphere(V3(-2, 1, -10), 2, mirror)
    Cube(V3(0.75, -0.75, -2.5), 0.5, rubber),
 ]
-ray.envmap = Envmap('fondo.bmp')
+ray.envmap = Envmap('atar.bmp')
 ray.render()
 ray.write('proyecto2.bmp')
